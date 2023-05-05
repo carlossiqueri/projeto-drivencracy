@@ -4,7 +4,8 @@ export const createPoll = async (req, res) => {
   const { title, expireAt } = req.body;
 
   try {
-    const poll = await db.collection("polls").insertOne({ title, expireAt });
+    const poll = await db.collection("polls").insertOne({ title, expireAt })
+    
     res.sendStatus(201);
   } catch (err) {
     res.status(500).send(err.message);

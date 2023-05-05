@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export const validateSchema = (schema) => {
+export const validatePollSchema = (schema) => {
   return (req, res, next) => {
     const validation = schema.validate(req.body, { abortEarly: false });
 
@@ -15,6 +15,8 @@ export const validateSchema = (schema) => {
       req.body.expireAt = newDate;
     }
 
+    if (req.body.title == null || req.body.title == "")
+      return res.sendStatus(422);
     next();
   };
 };
