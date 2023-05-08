@@ -3,7 +3,6 @@ import { validateChoicesSchema } from "../middlewares/choices.middleware.js";
 import { choicesSchema } from "../schemas/choices.schemas.js";
 import { createChoice } from "../controllers/choices.controllers.js";
 
-
 const choicesRouter = Router();
 
 choicesRouter.post(
@@ -11,6 +10,5 @@ choicesRouter.post(
   validateChoicesSchema(choicesSchema),
   createChoice
 );
-
 
 export default choicesRouter;

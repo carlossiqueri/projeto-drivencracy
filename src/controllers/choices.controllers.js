@@ -59,7 +59,8 @@ export const creatVote = async (req, res) => {
 
     const createdAt = dayjs().format("YYYY-MM-DD HH:mm");
 
-    if (!dayjs(createdAt).isBefore(dayjs(votingPoll.expireAt))) return res.sendStatus(403);
+    if (!dayjs(createdAt).isBefore(dayjs(votingPoll.expireAt)))
+      return res.sendStatus(403);
 
     const vote = await db
       .collection("votes")
@@ -70,4 +71,3 @@ export const creatVote = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
-
